@@ -3,7 +3,7 @@
 #include <sstream>
 #pragma once
 using namespace std;
-enum class priority {//три приоритета
+enum class priority {//С‚СЂРё РїСЂРёРѕСЂРёС‚РµС‚Р°
 	low,
 	medium,
 	high
@@ -29,7 +29,7 @@ public:
 	bool Is_Empty()const;
 	pair<int, priority> GetHead()const;
 	friend ostream& operator <<(ostream& s, const List& p);
-	struct Node//класс эл-та очереди
+	struct Node//СЌР»РµРјРµРЅС‚ РѕС‡РµСЂРµРґРё
 	{
 		Node* pNext;
 		int data;
