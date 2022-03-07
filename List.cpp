@@ -1,5 +1,5 @@
 #include "List.h"
-List::List()//конструктор
+List::List()//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 {
 	Size = 0;
 	Low_size = 0;
@@ -11,12 +11,12 @@ List::List()//конструктор
 	rear_low = nullptr;
 }
 
-List::~List()//деструктор
+List::~List()//РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 {
 	clear();
 }
 
-List::List(const List& p)//констуктор копирования
+List::List(const List& p)//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 {
 	List::Node* node = p.head;
 	while (node != nullptr) {
@@ -25,7 +25,7 @@ List::List(const List& p)//констуктор копирования
 	}
 }
 
-List::List(List&& p)//конструктор перемещения
+List::List(List&& p)//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРµСЂРµРјРµС‰РµРЅРёСЏ
 {
 	this->head = p.head;
 	this->rear_low = p.rear_low;
@@ -45,7 +45,7 @@ List::List(List&& p)//конструктор перемещения
 	p.High_size = 0;
 }
 
-List& List::operator=(const List& p)//копирующий оператор присваивания
+List& List::operator=(const List& p)//РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 {
 	if (this == &p) {
 		return *this;
@@ -59,7 +59,7 @@ List& List::operator=(const List& p)//копирующий оператор присваивания
 	return *this;
 }
 
-List& List::operator=(List&& p)//перемещающий оператор присваивания
+List& List::operator=(List&& p)//РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ РїРµСЂРµРјРµС‰РµРЅРёСЏ
 {
 	if (this == &p) {
 		return *this;
@@ -84,7 +84,7 @@ List& List::operator=(List&& p)//перемещающий оператор присваивания
 	return *this;
 }
 
-void List::pop_front()//удаление первого элемента, изменение Head
+void List::pop_front()//СѓРґР°Р»РµРЅРёРµ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
 {
 	if (head == rear_high) {
 		rear_high = nullptr;
@@ -110,7 +110,7 @@ void List::pop_front()//удаление первого элемента, изменение Head
 	Size--;
 }
 
-void List::push_back(int data)//добавление в конец очереди элемента без приоритета(автоматически дается третий приоритет и ставится в конец)
+void List::push_back(int data)//РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° Р±РµР· РїСЂРёРѕСЂРёС‚РµС‚Р°(Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РґР°РµС‚СЃСЏ low РїСЂРёРѕСЂРёС‚РµС‚ Рё СЃС‚Р°РІРёС‚СЃСЏ РІ РєРѕРЅРµС† РѕС‡РµСЂРµРґРё)
 {
 	if (head == nullptr)
 	{
@@ -129,7 +129,7 @@ void List::push_back(int data)//добавление в конец очереди элемента без приорите
 	Size++;
 }
 
-void List::push_back(int data, priority pr)//добавление элемента с приоритетом
+void List::push_back(int data, priority pr)//РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° СЃ РїСЂРёРѕСЂРёС‚РµС‚РѕРј
 {
 	if (head == nullptr)
 	{
@@ -193,7 +193,7 @@ void List::push_back(int data, priority pr)//добавление элемента с приоритетом
 	Size++;
 }
 
-void List::clear()//очищение
+void List::clear()//РѕС‡РёС‰РµРЅРёРµ
 {
 	while (Size)
 	{
@@ -220,7 +220,7 @@ int List::GetHighSize() const
 	return High_size;
 }
 
-bool List::Is_Empty() const//проверка на пустоту
+bool List::Is_Empty() const//РїСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕС‚Сѓ
 {
 	if (Size == 0) {
 		return true;
@@ -235,7 +235,7 @@ pair<int, priority> List::GetHead() const
 	return pair<int, priority>(head->data, head->pr);
 }
 
-ostream& operator<<(ostream& s, const List& p)//выведение всех элементов очереди(с нумерацией) в поток
+ostream& operator<<(ostream& s, const List& p)//РІС‹РІРѕРґ РѕС‡РµСЂРµРґРё РІ РїРѕС‚РѕРє
 {
 	if (p.Size > 0) {
 		int i = 1;
